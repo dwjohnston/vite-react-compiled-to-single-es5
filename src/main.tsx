@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import '@mpv-easy/polyfill'
+import { renderToString } from 'react-dom/server'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+function App() {
+  return (
+    <div>
+      <h1>hello</h1>
+      <h1>world 🌏</h1>
+    </div>
+  )
+}
+
+const s = renderToString(<App />)
+console.log(s)
